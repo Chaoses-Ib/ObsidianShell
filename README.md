@@ -1,4 +1,6 @@
 # ObsidianShell
+Languages: [English](README.md), [简体中文](README.zh-Hans.md)
+
 ## CLI
 A command line interface program for opening .md files in Obsidian. If the .md file is not in a Vault, the program will instead open it using the Markdown fallback.
 
@@ -36,4 +38,4 @@ Notepad (default):
 [Releases](https://github.com/Chaoses-Ib/ObsidianShell/releases)
 
 Requirements:
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) (installed by default on Windows 10 1903 and later).
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) (installed by default on Windows 10 1903 and later)
