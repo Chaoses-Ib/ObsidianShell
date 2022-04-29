@@ -1,6 +1,16 @@
 # ObsidianShell
 Languages: [English](README.md), [简体中文](README.zh-Hans.md)
 
+## Features
+- Open .md files in Obsidian through command line
+- Associate .md files with Obsidian  
+    This enables you to integrate Obsidian into your workflow. For example, you can use your favorite launcher to open your notes.
+    
+    For Chinese users:  
+    配合支持拼音搜索的启动器，还可以间接实现通过拼音搜索笔记文件，比如：
+    - [Everything](https://www.voidtools.com/) + [IbEverythingExt](https://github.com/Chaoses-Ib/IbEverythingExt)
+    - [Listary](https://www.listarypro.com/)
+
 ## CLI
 A command line interface program for opening .md files in Obsidian. If the .md file is not in a Vault, the program will instead open it using the Markdown fallback.
 

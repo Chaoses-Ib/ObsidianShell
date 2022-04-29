@@ -1,6 +1,15 @@
 # ObsidianShell
 语言：[English](README.md)、[简体中文](README.zh-Hans.md)
 
+## 功能
+- 通过命令行在 Obsidian 中打开 .md 文件
+- 关联 .md 文件到 Obsidian  
+    这有助于将 Obsidian 集成进你的工作流。比如，你可以使用你喜欢的启动器来打开笔记文件。
+
+    配合支持拼音搜索的启动器，还可以间接实现通过拼音搜索笔记文件，比如：
+    - [Everything](https://www.voidtools.com/) + [IbEverythingExt](https://github.com/Chaoses-Ib/IbEverythingExt)
+    - [Listary](https://www.listarypro.com/)
+
 ## CLI
 一个用来在 Obsidian 中打开 .md 文件的命令行程序。如果 .md 文件不在库里，程序会改用 Markdown 回落来打开它。
 
