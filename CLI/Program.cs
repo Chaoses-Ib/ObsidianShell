@@ -23,8 +23,9 @@ namespace CLI
             string path = args[0];
             if (Directory.Exists(path) || IsFileInVault(path))
             {
-                // WebUtility.UrlEncode() and Uri.EscapeDataString() will escape space with "+" rather than "%20"
-                Process.Start($"obsidian://open?path={Uri.EscapeUriString(path)}");
+                // WebUtility.UrlEncode() replaces space with "+" instead of "%20"
+                // Uri.EscapeUriString() replaces space with "%20" but does not replace most reserved characters (!#$&'()+,;=@[])
+                Process.Start($"obsidian://open?path={Uri.EscapeDataString(path)}");
             }
             else
             {
