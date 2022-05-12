@@ -2,8 +2,8 @@
 Languages: [English](README.md), [简体中文](README.zh-Hans.md)
 
 ## Features
-- Open .md files in Obsidian through command line
-- Associate .md files with Obsidian  
+- Open Markdown files in Obsidian through command line
+- Associate Markdown files with Obsidian  
     This enables you to integrate Obsidian into your workflow. For example, you can use your favorite launcher to open your notes.
     
     For Chinese users:  
@@ -11,10 +11,40 @@ Languages: [English](README.md), [简体中文](README.zh-Hans.md)
     - [Everything](https://www.voidtools.com/) + [IbEverythingExt](https://github.com/Chaoses-Ib/IbEverythingExt)
     - [Listary](https://www.listarypro.com/)
 
-## CLI
-A command line interface program for opening .md files in Obsidian. If the .md file is not in a Vault, the program will instead open it using the Markdown fallback.
+- Open standalone Markdown files in Obsidian, i.e., use Obsidian as a Markdown editor (VaultRecent/Recent mode)
+- Enable the *global vault pattern*, which means that you only need to maintain one config for your notes at different locations (Recent mode)
 
-Notice: The Vault where the .md file in must be in the Vault list before opening the file, i.e., you must have opened that Vault before, otherwise Obsidian will report an error.
+## Installation
+[Releases](https://github.com/Chaoses-Ib/ObsidianShell/releases)
+
+Requirements:
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) (installed by default on Windows 10 1903 and later)
+
+### Set as the default program for Markdown files
+![](images/File%20list.png)
+1. Right-click on one .md file
+2. Select `Open with` → `Choose another app` → `More Apps` → `Look for another app on this PC`
+3. Find and choose `ObsidianCLI.exe`
+
+
+## CLI
+A command line interface program for opening Markdown files in Obsidian.
+
+It supports three opening modes:
+- VaultFallback (default)  
+    If the Markdown file is in a vault, open the vault, otherwise open the file using the Markdown fallback (see below).
+- VaultRecent  
+    If the Markdown file is in a vault, open the vault, otherwise link the file to Recent vault and open the vault.
+
+    This mode is designed to open standalone Markdown files in Obsidian. The idea to implement it comes from [@etienne](https://forum.obsidian.md/t/open-and-edit-standalone-markdown-files/14977).
+- Recent  
+    Link the Markdown file to Recent vault and open the vault.
+
+    This mode is designed to enable the *global vault pattern*, which means that you only need to maintain one config for your notes at different locations. You can also use Obsidian purely as a Markdown editor. 
+
+You can change the opening mode in `ObsidianCLI.exe.Config`.
+
+Notice: The vault where the Markdown file in must be in the vault list before opening the file, i.e., you must have opened that vault before, otherwise Obsidian will report an error.
 
 ### Markdown fallback
 You can change the Markdown fallback in `ObsidianCLI.exe.Config`.
@@ -38,14 +68,10 @@ Notepad (default):
 <add key="MarkdownFallbackArguments" value="{0}" />
 ```
 
-### Set as the default program for .md files
-![](images/File%20list.png)
-1. Right-click on one .md file
-2. Select `Open with` → `Choose another app` → `More Apps` → `Look for another app on this PC`
-3. Find and choose `ObsidianCLI.exe`
+### Recent vault
+You can set the location of your Recent vault in `ObsidianCLI.exe.Config`:
+```xml
+<add key="RecentVault" value="C:\path\to\Recent" />
+```
 
-## Download
-[Releases](https://github.com/Chaoses-Ib/ObsidianShell/releases)
-
-Requirements:
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48) (installed by default on Windows 10 1903 and later)
+Notice: You must have opened the Recent vault before, otherwise Obsidian will report an error when opening files.
