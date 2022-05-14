@@ -171,23 +171,53 @@ namespace CLI
             bool TestTarget(string path)
             {
                 ReparseLink link = provider.GetLink(path);
-                // if the parent directory of a directory is already indexed by Obsidian, the directory won't be indexed (even with junction)
-                if (directory.FullName.StartsWith(link.Target))  // likely for most cases
-                {
-                    if (link.Target == directory.FullName)
-                        dir_target_same = path;
-                    else
-                        dir_target_same = path + directory.FullName.Substring(link.Target.Length);
-                    return true;
-                }
-                
+                if (link.Target is null)
+                    return false;
+                /*
                 if (!Directory.Exists(link.Target))
                 {
                     Directory.Delete(path);
                     return false;
                 }
-                conflict_dirs.Add(path);
-                conflict_targets.Add(link.Target);
+                */
+
+                if (path.EndsWith($"＼{directory.Name}"))
+                {
+                    if (link.Target == directory.FullName)
+                    {
+                        dir_target_same = path;
+                        return true;
+                    }
+
+                    if (!Directory.Exists(link.Target))
+                    {
+                        Directory.Delete(path);
+                        return false;
+                    }
+
+                    conflict_dirs.Add(path);
+                    conflict_targets.Add(link.Target);
+                }
+                else
+                {
+                    // If the parent directory of a directory is already indexed by Obsidian, the directory won't be indexed before restarting Obsidian.
+                    // The same is true even for a directory whose subdirectories are already indexed.
+                    
+                    if (directory.FullName.StartsWith(link.Target)) {
+                        /*
+                        dir_target_same = path + directory.FullName.Substring(link.Target.Length);
+                        return true;
+                        */
+                        Directory.Delete(path);
+                        return false;
+                    }
+                    
+                    if (link.Target.StartsWith(directory.FullName))
+                    {
+                        Directory.Delete(path);
+                        return false;
+                    }
+                }
                 return false;
             }
             string FormatLinkName(string name)
@@ -198,10 +228,15 @@ namespace CLI
                 else
                     return s;
             }
-            if (Directory.Exists(recent.FullName + $@"\{FormatLinkName(directory.Name)}") && TestTarget(recent.FullName + $@"\{FormatLinkName(directory.Name)}"))
+            string formatted_name = FormatLinkName(directory.Name);
+            if (Directory.Exists(recent.FullName + $@"\{formatted_name}") && TestTarget(recent.FullName + $@"\{formatted_name}"))
                 return dir_target_same;
-            foreach (DirectoryInfo dir in recent.EnumerateDirectories($"*＼{directory.Name}"))
+            foreach (DirectoryInfo dir in recent.EnumerateDirectories("*"))  // $"*＼{directory.Name}"
             {
+                // reduce unnecessary IO operations
+                if (dir.Name == ".obsidian" || dir.Name == formatted_name)
+                    continue;
+                
                 if (TestTarget(dir.FullName))
                     return dir_target_same;
             }
