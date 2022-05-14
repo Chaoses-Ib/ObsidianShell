@@ -190,7 +190,15 @@ namespace CLI
                 conflict_targets.Add(link.Target);
                 return false;
             }
-            if (Directory.Exists(recent.FullName + $@"\{directory.Name}") && TestTarget(recent.FullName + $@"\{directory.Name}"))
+            string FormatLinkName(string name)
+            {
+                string s = name.Replace('\\', '＼');
+                if (s[0] == '.')
+                    return ' ' + s;
+                else
+                    return s;
+            }
+            if (Directory.Exists(recent.FullName + $@"\{FormatLinkName(directory.Name)}") && TestTarget(recent.FullName + $@"\{FormatLinkName(directory.Name)}"))
                 return dir_target_same;
             foreach (DirectoryInfo dir in recent.EnumerateDirectories($"*＼{directory.Name}"))
             {
@@ -210,14 +218,14 @@ namespace CLI
             for (int i = 0; i < conflict_dirs.Count; i++)
             {
                 // may conflict?
-                Move(conflict_dirs[i], path_in_recent + prefixed_dirs[i].Replace('\\', '＼'));
+                Move(conflict_dirs[i], path_in_recent + FormatLinkName(prefixed_dirs[i]));
                 /*
                 Directory.Delete(conflict_dirs[i]);
                 provider.CreateLink(path_in_recent + prefixed_dirs[i].Replace('\\', '＼'), conflict_targets[i], LinkType.Junction);
                 */
             }
 
-            path_in_recent += prefixed_dirs.Last().Replace('\\', '＼');
+            path_in_recent += FormatLinkName(prefixed_dirs.Last());
             provider.CreateLink(path_in_recent, directory.FullName, LinkType.Junction);
             return path_in_recent;
         }
