@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NCode.ReparsePoints;
 
-namespace CLI
+namespace ObsidianCLI
 {
     internal class Program
     {
@@ -150,17 +150,49 @@ namespace CLI
             var directory = new DirectoryInfo(path);
             if (directory.Exists)
             {
-                path_in_recent = CreateLinkInRecent(directory);
+                // find the Markdown file with the minimum edit distance from the directory name
+                Fastenshtein.Levenshtein edit_distance = new Fastenshtein.Levenshtein(directory.Name);
+                int min_distance = int.MaxValue;
+                FileInfo most_similar_file = null;
+                foreach (FileInfo file in directory.EnumerateFiles("*.md"))
+                {
+                    int distance = edit_distance.DistanceFrom(file.Name);
+                    if (distance < min_distance)
+                    {
+                        most_similar_file = file;
+                        min_distance = distance;
+                    }
+                }
+
+                path_in_recent = CreateLinkInRecent(directory, true);
+
+                if (most_similar_file is null is false)
+                    path_in_recent += '\\' + most_similar_file.Name;
             }
             else
             {
-                path_in_recent = CreateLinkInRecent(directory.Parent) + '\\' + directory.Name;
+                path_in_recent = CreateLinkInRecent(directory.Parent, false) + '\\' + directory.Name;
             }
 
             OpenFileInVault(path_in_recent);
         }
 
-        static string CreateLinkInRecent(DirectoryInfo directory)
+        static string FormatLinkName(string prefixed_name, bool explicitDirectory)
+        {
+            string s = "";
+            
+            if (prefixed_name[0] == '.')
+                s += ' ';
+            
+            s += prefixed_name.Replace('\\', '＼');
+
+            if (explicitDirectory)
+                s += "＼";
+
+            return s;
+        }
+
+        static string CreateLinkInRecent(DirectoryInfo directory, bool explicitDirectory)
         {
             var provider = ReparsePointFactory.Provider;
             DirectoryInfo recent = new DirectoryInfo(GetConfigValue("RecentVault"));
@@ -204,12 +236,16 @@ namespace CLI
                     // The same is true even for a directory whose subdirectories are already indexed.
                     
                     if (directory.FullName.StartsWith(link.Target)) {
-                        /*
-                        dir_target_same = path + directory.FullName.Substring(link.Target.Length);
-                        return true;
-                        */
-                        Directory.Delete(path);
-                        return false;
+                        if (path.EndsWith("＼"))
+                        {
+                            dir_target_same = path + directory.FullName.Substring(link.Target.Length);
+                            return true;
+                        }
+                        else
+                        {
+                            Directory.Delete(path);
+                            return false;
+                        }
                     }
                     
                     if (link.Target.StartsWith(directory.FullName))
@@ -220,21 +256,16 @@ namespace CLI
                 }
                 return false;
             }
-            string FormatLinkName(string name)
-            {
-                string s = name.Replace('\\', '＼');
-                if (s[0] == '.')
-                    return ' ' + s;
-                else
-                    return s;
-            }
-            string formatted_name = FormatLinkName(directory.Name);
+            string formatted_name = FormatLinkName(directory.Name, false);
             if (Directory.Exists(recent.FullName + $@"\{formatted_name}") && TestTarget(recent.FullName + $@"\{formatted_name}"))
                 return dir_target_same;
-            foreach (DirectoryInfo dir in recent.EnumerateDirectories("*"))  // $"*＼{directory.Name}"
+            string formatted_name_explicit = FormatLinkName(directory.Name, true);
+            if (Directory.Exists(recent.FullName + $@"\{formatted_name_explicit}") && TestTarget(recent.FullName + $@"\{formatted_name_explicit}"))
+                return dir_target_same;
+            foreach (DirectoryInfo dir in recent.EnumerateDirectories())  // $"*＼{directory.Name}"
             {
                 // reduce unnecessary IO operations
-                if (dir.Name == ".obsidian" || dir.Name == formatted_name)
+                if (dir.Name == ".obsidian" || dir.Name == formatted_name || dir.Name == formatted_name_explicit)
                     continue;
                 
                 if (TestTarget(dir.FullName))
@@ -253,14 +284,14 @@ namespace CLI
             for (int i = 0; i < conflict_dirs.Count; i++)
             {
                 // may conflict?
-                Move(conflict_dirs[i], path_in_recent + FormatLinkName(prefixed_dirs[i]));
+                Move(conflict_dirs[i], path_in_recent + FormatLinkName(prefixed_dirs[i], conflict_dirs[i].EndsWith("＼")));
                 /*
                 Directory.Delete(conflict_dirs[i]);
                 provider.CreateLink(path_in_recent + prefixed_dirs[i].Replace('\\', '＼'), conflict_targets[i], LinkType.Junction);
                 */
             }
 
-            path_in_recent += FormatLinkName(prefixed_dirs.Last());
+            path_in_recent += FormatLinkName(prefixed_dirs.Last(), explicitDirectory);
             provider.CreateLink(path_in_recent, directory.FullName, LinkType.Junction);
             return path_in_recent;
         }

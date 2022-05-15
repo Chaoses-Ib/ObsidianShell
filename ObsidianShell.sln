@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "CLI\CLI.csproj", "{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextMenu", "ContextMenu\ContextMenu.csproj", "{FAC356E8-2107-4036-97FD-13154FD92F7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

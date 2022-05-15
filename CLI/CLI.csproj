@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CLI</RootNamespace>
+    <RootNamespace>ObsidianCLI</RootNamespace>
     <AssemblyName>ObsidianCLI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -75,6 +75,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fastenshtein, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fastenshtein.1.0.0.8\lib\net452\Fastenshtein.dll</HintPath>
+    </Reference>
     <Reference Include="NCode.ReparsePoints, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NCode.ReparsePoints.1.0.2\lib\net451\NCode.ReparsePoints.dll</HintPath>
     </Reference>
@@ -95,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="CLI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
   </ItemGroup>
