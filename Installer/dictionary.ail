@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DICTIONARY type="multilanguage">
+  <ENTRY id="Property.ARPCOMMENTS">
+    <STRING lang="zh" value="在 Obsidian 中打开 .md 文件。"/>
+  </ENTRY>
+</DICTIONARY>

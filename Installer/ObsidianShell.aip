@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.7.1" version="19.7.1" Modules="professional" RootPath="." Language="en" Id="{A7E9D2BB-B964-4619-8096-95AEA28027E1}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent;CPLAppletComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_PACKAGING_TOOL" Value="Advanced Installer 19.7.1 build e09f3004" ValueLocId="-"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.0" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.0.1" ValueLocId="-"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="Open .md files in Obsidian." ValueLocId="*"/>
+    <ROW Property="ARPHELPLINK" Value="https://github.com/Chaoses-Ib/ObsidianShell"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="ext.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="https://github.com/Chaoses-Ib/ObsidianShell"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Chaoses-Ib/ObsidianShell/releases"/>
+    <ROW Property="Manufacturer" Value="Chaoses Ib"/>
+    <ROW Property="ProductCode" Value="1033:{A1545806-A852-46D2-BA0E-F61954C7759E} 2052:{A1545806-A852-46D2-BA0E-F61954C7759E} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="ObsidianShell"/>
+    <ROW Property="ProductVersion" Value="0.1.0.0" Options="16"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{B2C93D0A-14C9-4F42-BFCA-208C5C5F9DCA}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:32-bit Windows versions" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{EE7D7CAD-5301-48BD-BC7B-876D8C42FE29}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{5E8266A2-C255-4801-BDCC-106AF9A9EF3E}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="ApplicationDescription" ComponentId="{52745360-A49D-4ED6-9009-17760FC87091}" Directory_="APPDIR" Attributes="260" Condition="(VersionNT &gt;= 600)" KeyPath="ApplicationDescription"/>
+    <ROW Component="C8FE654EBB45E7B4406E39B2CDBF29" ComponentId="{F251EDEA-AD1D-48FD-8530-1A65E2605B54}" Directory_="APPDIR" Attributes="260" KeyPath="C8FE654EBB45E7B4406E39B2CDBF29_1"/>
+    <ROW Component="Fastenshtein.dll" ComponentId="{A301E06B-121B-4F09-9970-81E958F59FBE}" Directory_="APPDIR" Attributes="0" KeyPath="Fastenshtein.dll"/>
+    <ROW Component="NCode.ReparsePoints.dll" ComponentId="{12089F0B-2BFA-4C6F-A075-24A7696AB54A}" Directory_="APPDIR" Attributes="0" KeyPath="NCode.ReparsePoints.dll"/>
+    <ROW Component="New_Key" ComponentId="{BDD34BD1-19AC-4357-99B2-8DD6C696510D}" Directory_="APPDIR" Attributes="260" KeyPath="New_Key"/>
+    <ROW Component="ObsidianCLI.exe" ComponentId="{A7EF1F68-1F66-4D58-B384-CD884D783E5D}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianCLI.exe"/>
+    <ROW Component="ObsidianCLI.exe.Config" ComponentId="{0142473D-B763-4091-9CB8-77B01441541C}" Directory_="APPDIR" Attributes="0" KeyPath="ObsidianCLI.exe.Config" Type="0"/>
+    <ROW Component="ObsidianContextMenu.dll" ComponentId="{F1EC6B98-501E-4BB8-90BC-ACA9D43A37A8}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianContextMenu.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{0A8B3335-B85F-4310-A70A-40AD6E0B3B93}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
+    <ROW Component="ProgId" ComponentId="{AB9EE4B4-1224-476B-B94B-D0A2A4414854}" Directory_="APPDIR" Attributes="260" KeyPath="ProgId"/>
+    <ROW Component="SharpShell.dll" ComponentId="{AE176F64-D5EE-474A-8723-DD6ED6287CC0}" Directory_="APPDIR" Attributes="0" KeyPath="SharpShell.dll"/>
+    <ROW Component="ThreadingModel" ComponentId="{69CE1CA0-92A0-4710-98D5-06DA9BD2A904}" Directory_="APPDIR" Attributes="260" KeyPath="ThreadingModel"/>
+    <ROW Component="_" ComponentId="{563118CB-30E3-4DCD-94BF-80CE83DEDC87}" Directory_="APPDIR" Attributes="260" KeyPath="__3"/>
+    <ROW Component="__1" ComponentId="{4E1EAB7C-DF6B-4BA6-8AA2-37A6A6AF58E0}" Directory_="APPDIR" Attributes="260" KeyPath="__7"/>
+    <ROW Component="__2" ComponentId="{F705C990-E506-482C-84CF-689467D22D86}" Directory_="APPDIR" Attributes="260" KeyPath="__8"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Fastenshtein.dll" Component_="Fastenshtein.dll" FileName="FASTEN~1.DLL|Fastenshtein.dll" Attributes="0" SourcePath="bin\Fastenshtein.dll" SelfReg="false"/>
+    <ROW File="NCode.ReparsePoints.dll" Component_="NCode.ReparsePoints.dll" FileName="NCODER~1.DLL|NCode.ReparsePoints.dll" Attributes="0" SourcePath="bin\NCode.ReparsePoints.dll" SelfReg="false"/>
+    <ROW File="ObsidianCLI.exe" Component_="ObsidianCLI.exe" FileName="OBSIDI~1.EXE|ObsidianCLI.exe" Attributes="0" SourcePath="bin\ObsidianCLI.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="ObsidianCLI.exe.Config" Component_="ObsidianCLI.exe.Config" FileName="OBSIDI~1.CON|ObsidianCLI.exe.Config" Attributes="0" SourcePath="bin\ObsidianCLI.exe.Config" SelfReg="false"/>
+    <ROW File="ObsidianContextMenu.dll" Component_="ObsidianContextMenu.dll" FileName="OBSIDI~1.DLL|ObsidianContextMenu.dll" Attributes="0" SourcePath="bin\ObsidianContextMenu.dll" SelfReg="dotNetComInterop"/>
+    <ROW File="SharpShell.dll" Component_="SharpShell.dll" FileName="SHARPS~1.DLL|SharpShell.dll" Attributes="0" SourcePath="bin\SharpShell.dll" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en;zh" LangOpt="1" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="bin\ObsidianCLI.exe" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true" ExeName="ObsidianShell Installer" MsiPackageType="x64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DefaultProgramsComponent">
+    <ROW ApplicationDescription="Your application description" ApplicationName="[ProductName]" CapabilitiesPath="SOFTWARE\[Manufacturer]\[ProductName]" Defaults="md" RegistryKey="ApplicationDescription" RegistryAppName="ApplicationName" RegistryRegisterApp="ProductName_4"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DefaultProgramsExtComponent">
+    <ROW DefaultProgram="ApplicationDescription" Extension="md" Component_="ObsidianCLI.exe" Registry="md"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_zh.ail"/>
+    <ROW Path="dictionary.ail" Options="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DynamicPropertyComponent">
+    <ROW Property="ProductVersion" Type="2" SourcePath="ObsidianCLI.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\ProgressPrereqDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="defaultPrograms.dll" SourcePath="&lt;AI_CUSTACTS&gt;defaultPrograms.dll"/>
+    <ROW Name="defaultPrograms.dll_1" SourcePath="&lt;AI_CUSTACTS64&gt;defaultPrograms.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_BACKUP_DEFAULTS" Type="1" Source="defaultPrograms.dll" Target="GetAllOldDefaults" AdditionalSeq="AI_DATA_SETTER_2"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[ProductName]&#2;md"/>
+    <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[ProductName]&#2;md"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_DEFAULTS" Type="1" Source="defaultPrograms.dll" Target="RestoreDefaults"/>
+    <ROW Action="AI_RESTORE_DEFAULTS64" Type="1" Source="defaultPrograms.dll_1" Target="RestoreDefaults"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SET_DEFAULTS" Type="1" Source="defaultPrograms.dll" Target="SetDefaultCustom" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiExtComponent">
+    <ROW Extension="md" Component_="ObsidianCLI.exe" ProgId_="[|Manufacturer].[|ProductName].md" Feature_="MainFeature" Options="32"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="Fastenshtein.dll"/>
+    <ROW Feature_="MainFeature" Component_="NCode.ReparsePoints.dll"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianCLI.exe"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianCLI.exe.Config"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianContextMenu.dll"/>
+    <ROW Feature_="MainFeature" Component_="SharpShell.dll"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="ApplicationDescription"/>
+    <ROW Feature_="MainFeature" Component_="_"/>
+    <ROW Feature_="MainFeature" Component_="ThreadingModel"/>
+    <ROW Feature_="MainFeature" Component_="New_Key"/>
+    <ROW Feature_="MainFeature" Component_="C8FE654EBB45E7B4406E39B2CDBF29"/>
+    <ROW Feature_="MainFeature" Component_="ProgId"/>
+    <ROW Feature_="MainFeature" Component_="__1"/>
+    <ROW Feature_="MainFeature" Component_="__2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="ext.exe" SourcePath="bin\ObsidianCLI.exe" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1503"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="103"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_AppSearchEx" Sequence="102"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_SET_DEFAULTS" Condition="(VersionNT &gt;= 600) AND (Not Installed)" Sequence="6602"/>
+    <ROW Action="AI_DATA_SETTER_1" Condition="(VersionNT &gt;= 600) AND (Not Installed)" Sequence="6601"/>
+    <ROW Action="AI_BACKUP_DEFAULTS" Condition="(VersionNT &gt;= 600) AND (Not Installed)" Sequence="1502"/>
+    <ROW Action="AI_DATA_SETTER_2" Condition="(VersionNT &gt;= 600) AND (Not Installed)" Sequence="1501"/>
+    <ROW Action="AI_RESTORE_DEFAULTS" Condition="(VersionNT &gt;= 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="1627"/>
+    <ROW Action="AI_RESTORE_DEFAULTS64" Condition="VersionNT64 AND (VersionNT &gt;= 600) AND (REMOVE = &quot;ALL&quot;)" Sequence="1626"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_DetectSoftware" Sequence="103"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR VersionNT64 )" Description="[ProductName] cannot be installed on [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_REQUIRED_DOTNET_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiProgIdComponent">
+    <ROW ProgId="[|Manufacturer].[|ProductName].md" Icon_="ext.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="ApplicationDescription" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities" Name="ApplicationDescription" Value="#%Your application description" Component_="ApplicationDescription" VirtualValue="#%"/>
+    <ROW Registry="ApplicationName" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities" Name="ApplicationName" Value="#%[ProductName]" Component_="ApplicationDescription" VirtualValue="#%"/>
+    <ROW Registry="Assembly" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="Assembly" Value="ObsidianContextMenu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6894c8687a1b74a8" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="Assembly_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32\1.0.0.0" Name="Assembly" Value="ObsidianContextMenu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6894c8687a1b74a8" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="C8FE654EBB45E7B4406E39B2CDBF29" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="C8FE654EBB45E7B4406E39B2CDBF29_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}" Name="+" Component_="C8FE654EBB45E7B4406E39B2CDBF29"/>
+    <ROW Registry="CLSID" Root="0" Key="ObsidianContextMenu.ContextMenu\CLSID" Name="\"/>
+    <ROW Registry="CLSID_1" Root="0" Key="CLSID" Name="\"/>
+    <ROW Registry="Capabilities" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="Class" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="Class" Value="ObsidianContextMenu.ContextMenu" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="Class_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32\1.0.0.0" Name="Class" Value="ObsidianContextMenu.ContextMenu" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="CodeBase" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="CodeBase" Value="file:///[#ObsidianContextMenu.dll]" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="CodeBase_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32\1.0.0.0" Name="CodeBase" Value="file:///[#ObsidianContextMenu.dll]" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="E1009DEDD5A34B2A618D9126A2806D3" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}" Name="\"/>
+    <ROW Registry="FileAssociations" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities\FileAssociations" Name="\"/>
+    <ROW Registry="ImplementedCategories" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\Implemented Categories" Name="\"/>
+    <ROW Registry="InprocServer32" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="\"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Manufacturer_2" Root="2" Key="SOFTWARE\[Manufacturer]" Name="\"/>
+    <ROW Registry="New_Key" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\Implemented Categories" Name="+" Component_="New_Key"/>
+    <ROW Registry="ObsidianContextMenu.ContextMenu" Root="0" Key="ObsidianContextMenu.ContextMenu" Name="\"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductName_3" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductName_4" Root="2" Key="SOFTWARE\RegisteredApplications" Name="[ProductName]" Value="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities" Component_="ApplicationDescription"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="ProgId" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\ProgId" Name="+" Component_="ProgId"/>
+    <ROW Registry="RegisteredApplications" Root="2" Key="SOFTWARE\RegisteredApplications" Name="\"/>
+    <ROW Registry="RuntimeVersion" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="RuntimeVersion_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32\1.0.0.0" Name="RuntimeVersion" Value="v4.0.30319" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="SOFTWARE" Root="2" Key="SOFTWARE" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="ThreadingModel" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="ThreadingModel"/>
+    <ROW Registry="ThreadingModel_1" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Name="ThreadingModel" Value="Both" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="_" Root="0" Key="ObsidianContextMenu.ContextMenu" Value="ObsidianContextMenu.ContextMenu" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="__1" Root="0" Key="ObsidianContextMenu.ContextMenu\CLSID" Value="[\{]7E1009DE-DD5A-34B2-A618-D9126A2806D3[\}]" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="__2" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}" Value="ObsidianContextMenu.ContextMenu" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="__3" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Value="mscoree.dll" Component_="_"/>
+    <ROW Registry="__4" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32\1.0.0.0" Name="\"/>
+    <ROW Registry="__5" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\ProgId" Value="ObsidianContextMenu.ContextMenu" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="__6" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\InprocServer32" Value="mscoree.dll" Component_="ObsidianContextMenu.dll"/>
+    <ROW Registry="__7" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}\ProgId" Value="ObsidianContextMenu.ContextMenu" Component_="__1"/>
+    <ROW Registry="__8" Root="0" Key="CLSID\{7E1009DE-DD5A-34B2-A618-D9126A2806D3}" Value="ObsidianContextMenu.ContextMenu" Component_="__2"/>
+    <ROW Registry="md" Root="2" Key="SOFTWARE\[Manufacturer]\[ProductName]\Capabilities\FileAssociations" Name=".md" Value="Chaoses Ib.ObsidianShell.md" Component_="ApplicationDescription"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiVerbComponent">
+    <ROW Extension_="md" Component_="ObsidianCLI.exe" Verb="open" Sequence="0" Command="&amp;Open" Argument="&quot;%1&quot;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="B96F93FA27E74B02866727AAE83982D0" DisplayName=".NET Framework 4.8" SetupFileUrl="https://download.visualstudio.microsoft.com/download/pr/014120d7-d689-4305-befd-3cb711108212/0fd66638cde16859462a6243a4629a50/ndp48-x86-x64-allos-enu.exe" Location="1" ExactSize="117380440" WinNTVersions="Windows Vista x86, Windows Server 2008 x86, Windows 7 RTM x86, Windows 8 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86, Windows 10 version 20H2 x86, Windows 10 version 21H1 x86, Windows 10 version 21H2 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows 8 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64, Windows 10 version 20H2 x64, Windows 10 version 21H1 x64, Windows 10 version 21H2 x64, Windows Server 2022 x64, Windows 11 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="aebcb9fcafa2becf8bb30458a7e1f0a2" TargetName=".NET Framework 4.8"/>
+    <ATTRIBUTE name="PrereqsOrder" value="B96F93FA27E74B02866727AAE83982D0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="B96F93FA27E74B02866727AAE83982D0Release" Prereq="B96F93FA27E74B02866727AAE83982D0" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G528048" Order="1" Property="PreReqSearch_B96F93FA27E74B02866727"/>
+  </COMPONENT>
+</DOCUMENT>
