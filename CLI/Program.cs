@@ -291,6 +291,15 @@ namespace ObsidianCLI
                 */
             }
 
+            // Recent = dirs + .obsidian
+            if (recent.GetDirectories().Length > int.Parse(GetConfigValue("RecentLimit")))
+            {
+                (from f in recent.GetDirectories()
+                 orderby f.LastWriteTime ascending
+                 where f.Name != ".obsidian"
+                 select f).First().Delete();
+            }
+
             path_in_recent += FormatLinkName(prefixed_dirs.Last(), explicitDirectory);
             provider.CreateLink(path_in_recent, directory.FullName, LinkType.Junction);
             return path_in_recent;

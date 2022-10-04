@@ -76,5 +76,9 @@ You can set the location of your Recent vault in `ObsidianCLI.exe.Config`:
 ```xml
 <add key="RecentVault" value="C:\path\to\Recent" />
 ```
+And the limit of directory number:
+```xml
+<add key="RecentNumberLimit" value="10" />
+```
 
 Notice: You must have opened the Recent vault before, otherwise Obsidian will report an error when opening files.

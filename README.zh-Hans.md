@@ -73,9 +73,13 @@ Markdown 回落可以在 `ObsidianCLI.exe.Config` 中设置。
 ```
 
 ### Recent 仓库
-Recent 仓库的位置可以在 `ObsidianCLI.exe.Config` 中设置：
+你可以在 `ObsidianCLI.exe.Config` 中设置 Recent 仓库的位置：
 ```xml
 <add key="RecentVault" value="C:\path\to\Recent" />
+```
+以及目录的最大数量：
+```xml
+<add key="RecentLimit" value="10" />
 ```
 
 注意：你必须在之前打开过 Recent 仓库，否则 Obsidian 会在打开文件时报错。
