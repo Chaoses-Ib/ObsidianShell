@@ -19,10 +19,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/Chaoses-Ib/ObsidianShell"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/Chaoses-Ib/ObsidianShell/releases"/>
     <ROW Property="Manufacturer" Value="Chaoses Ib"/>
-    <ROW Property="ProductCode" Value="1033:{A1545806-A852-46D2-BA0E-F61954C7759E} 2052:{A1545806-A852-46D2-BA0E-F61954C7759E} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{E68ADFA6-A721-4A05-ADEF-9D2146ABA7F7} 2052:{E68ADFA6-A721-4A05-ADEF-9D2146ABA7F7} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="ObsidianShell"/>
-    <ROW Property="ProductVersion" Value="0.1.0.0" Options="16"/>
+    <ROW Property="ProductVersion" Value="0.2.0.0" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{B2C93D0A-14C9-4F42-BFCA-208C5C5F9DCA}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -70,6 +70,7 @@
     <ROW File="ObsidianCLI.exe.Config" Component_="ObsidianCLI.exe.Config" FileName="OBSIDI~1.CON|ObsidianCLI.exe.Config" Attributes="0" SourcePath="bin\ObsidianCLI.exe.Config" SelfReg="false"/>
     <ROW File="ObsidianContextMenu.dll" Component_="ObsidianContextMenu.dll" FileName="OBSIDI~1.DLL|ObsidianContextMenu.dll" Attributes="0" SourcePath="bin\ObsidianContextMenu.dll" SelfReg="dotNetComInterop"/>
     <ROW File="SharpShell.dll" Component_="SharpShell.dll" FileName="SHARPS~1.DLL|SharpShell.dll" Attributes="0" SourcePath="bin\SharpShell.dll" SelfReg="false"/>
+    <ROW File="ObsidianShell.url" Component_="ObsidianCLI.exe.Config" FileName="OBSIDI~1.URL|ObsidianShell.url" Attributes="0" SourcePath="bin\ObsidianShell.url" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
