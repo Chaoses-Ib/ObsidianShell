@@ -16,7 +16,8 @@
 ## 安装
 [Releases](https://github.com/Chaoses-Ib/ObsidianShell/releases)
 
-配置文件路径：`C:\Program Files\Chaoses Ib\ObsidianShell\ObsidianCLI.exe.Config`
+配置文件路径：`%LOCALAPPDATA%\Chaoses Ib\ObsidianShell\ObsidianShell.Config`
+
 ### 设为 Markdown 文件的默认程序
 ![](images/File%20list.png)
 
@@ -38,7 +39,7 @@
 - Recent  
   把 Markdown 文件链接到 Recent 仓库并打开。
 
-打开模式可以在 `ObsidianCLI.exe.Config` 中设置：
+打开模式可以在 `ObsidianShell.Config` 中设置：
 ```xml
 <add key="OpenMode" value="VaultFallback" />
 ```
@@ -46,7 +47,7 @@
 注意：要打开的 Markdown 文件的仓库必须在仓库列表中，也就是说，你必须在之前打开过那个仓库，否则 Obsidian 会报错。
 
 ### Markdown 回落
-Markdown 回落编辑器可以在 `ObsidianCLI.exe.Config` 中设置。
+Markdown 回落编辑器可以在 `ObsidianShell.Config` 中设置。
 
 记事本（默认）：
 ```xml
@@ -68,7 +69,7 @@ Markdown 回落编辑器可以在 `ObsidianCLI.exe.Config` 中设置。
 ```
 
 ### Recent 仓库
-你可以在 `ObsidianCLI.exe.Config` 中设置 Recent 仓库的位置：
+你可以在 `ObsidianShell.Config` 中设置 Recent 仓库的位置：
 ```xml
 <add key="RecentVault" value="C:\path\to\Recent" />
 ```

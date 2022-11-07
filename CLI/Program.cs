@@ -29,7 +29,21 @@ namespace ObsidianCLI
             
             string path = args[0];
 
-            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            string config_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Chaoses Ib", "ObsidianShell", "ObsidianShell.config");
+            if (!File.Exists(config_path))
+            {
+                DirectoryInfo program_directory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                config_path = Path.Combine(program_directory.FullName, "ObsidianShell.config");
+                if (!File.Exists(config_path))
+                {
+                    MessageBox.Show($"Config file ObsidianShell.config not found", "ObsidianCLI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            var filemap = new ExeConfigurationFileMap();
+            filemap.ExeConfigFilename = config_path;
+            config = ConfigurationManager.OpenMappedExeConfiguration(filemap, ConfigurationUserLevel.None);
             
             string open_mode = GetConfigValueOr("OpenMode", "VaultFallback");
             switch (open_mode)

@@ -17,7 +17,7 @@ Languages: [English](README.md), [简体中文](README.zh-Hans.md)
 ## Installation
 [Releases](https://github.com/Chaoses-Ib/ObsidianShell/releases)
 
-Config file location: `C:\Program Files\Chaoses Ib\ObsidianShell\ObsidianCLI.exe.Config`
+Config file location: `%LOCALAPPDATA%\Chaoses Ib\ObsidianShell\ObsidianShell.Config`
 
 ### Set as the default program for Markdown files
 ![](images/File%20list.png)
@@ -40,7 +40,7 @@ It supports three opening modes:
 - Recent  
   Link the Markdown file to Recent vault and open the vault.
 
-You can change the opening mode in `ObsidianCLI.exe.Config`:
+You can change the opening mode in `ObsidianShell.Config`:
 ```xml
 <add key="OpenMode" value="VaultFallback" />
 ```
@@ -48,7 +48,7 @@ You can change the opening mode in `ObsidianCLI.exe.Config`:
 Notice: The vault where the Markdown file in must be in the vault list before opening the file, i.e., you must have opened that vault before, otherwise Obsidian will report an error.
 
 ### Markdown fallback
-You can change the Markdown fallback editor in `ObsidianCLI.exe.Config`.
+You can change the Markdown fallback editor in `ObsidianShell.Config`.
 
 Notepad (default):
 ```xml
@@ -70,7 +70,7 @@ Notepad (default):
 ```
 
 ### Recent vault
-You can set the location of your Recent vault in `ObsidianCLI.exe.Config`:
+You can set the location of your Recent vault in `ObsidianShell.Config`:
 ```xml
 <add key="RecentVault" value="C:\path\to\Recent" />
 ```
