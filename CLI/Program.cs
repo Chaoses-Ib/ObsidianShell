@@ -227,7 +227,7 @@ namespace ObsidianCLI
                 }
                 */
 
-                if (path.EndsWith($"＼{directory.Name}"))
+                if (path.EndsWith($"\\{directory.Name}") || path.EndsWith($"＼{directory.Name}"))
                 {
                     if (link.Target == directory.FullName)
                     {
