@@ -1,3 +1,7 @@
+private/
+*.private
+*.private.*
+
 Installer/ObsidianShell/
 
 # Advanced Installer caches and default build output
