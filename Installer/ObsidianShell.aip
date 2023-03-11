@@ -52,10 +52,10 @@
     <ROW Component="Fastenshtein.dll" ComponentId="{A301E06B-121B-4F09-9970-81E958F59FBE}" Directory_="APPDIR" Attributes="0" KeyPath="Fastenshtein.dll"/>
     <ROW Component="NCode.ReparsePoints.dll" ComponentId="{12089F0B-2BFA-4C6F-A075-24A7696AB54A}" Directory_="APPDIR" Attributes="0" KeyPath="NCode.ReparsePoints.dll"/>
     <ROW Component="New_Key" ComponentId="{BDD34BD1-19AC-4357-99B2-8DD6C696510D}" Directory_="APPDIR" Attributes="260" KeyPath="New_Key"/>
-    <ROW Component="ObsidianCLI.exe" ComponentId="{A7EF1F68-1F66-4D58-B384-CD884D783E5D}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianCLI.exe"/>
-    <ROW Component="ObsidianCLI.exe.Config" ComponentId="{0142473D-B763-4091-9CB8-77B01441541C}" Directory_="APPDIR" Attributes="0" KeyPath="ObsidianShell.url" Type="0"/>
-    <ROW Component="ObsidianCLI.exe.Config_1" ComponentId="{10588A1A-4EC7-4DE8-B781-25DF0D13F33E}" Directory_="NewFolder_Dir" Attributes="0" KeyPath="ObsidianCLI.exe.Config" Type="0"/>
-    <ROW Component="ObsidianContextMenu.dll" ComponentId="{F1EC6B98-501E-4BB8-90BC-ACA9D43A37A8}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianContextMenu.dll"/>
+    <ROW Component="ObsidianShell.CLI.exe" ComponentId="{A7EF1F68-1F66-4D58-B384-CD884D783E5D}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianShell.CLI.exe"/>
+    <ROW Component="ObsidianShell.CLI.exe.Config" ComponentId="{0142473D-B763-4091-9CB8-77B01441541C}" Directory_="APPDIR" Attributes="0" KeyPath="ObsidianShell.url" Type="0"/>
+    <ROW Component="ObsidianShell.CLI.exe.Config_1" ComponentId="{10588A1A-4EC7-4DE8-B781-25DF0D13F33E}" Directory_="NewFolder_Dir" Attributes="0" KeyPath="ObsidianShell.CLI.exe.Config" Type="0"/>
+    <ROW Component="ObsidianShell.ContextMenu.dll" ComponentId="{F1EC6B98-501E-4BB8-90BC-ACA9D43A37A8}" Directory_="APPDIR" Attributes="256" KeyPath="ObsidianShell.ContextMenu.dll"/>
     <ROW Component="ProductInformation" ComponentId="{0A8B3335-B85F-4310-A70A-40AD6E0B3B93}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="SharpShell.dll" ComponentId="{AE176F64-D5EE-474A-8723-DD6ED6287CC0}" Directory_="APPDIR" Attributes="0" KeyPath="SharpShell.dll"/>
   </COMPONENT>
@@ -66,14 +66,14 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
     <ROW File="Fastenshtein.dll" Component_="Fastenshtein.dll" FileName="FASTEN~1.DLL|Fastenshtein.dll" Attributes="0" SourcePath="bin\Fastenshtein.dll" SelfReg="false"/>
     <ROW File="NCode.ReparsePoints.dll" Component_="NCode.ReparsePoints.dll" FileName="NCODER~1.DLL|NCode.ReparsePoints.dll" Attributes="0" SourcePath="bin\NCode.ReparsePoints.dll" SelfReg="false"/>
-    <ROW File="ObsidianCLI.exe" Component_="ObsidianCLI.exe" FileName="OBSIDI~1.EXE|ObsidianCLI.exe" Attributes="0" SourcePath="bin\ObsidianCLI.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="ObsidianCLI.exe.Config" Component_="ObsidianCLI.exe.Config_1" FileName="OBSIDI~2.CON|ObsidianShell.Config" Attributes="0" SourcePath="bin\ObsidianShell.Config" SelfReg="false"/>
-    <ROW File="ObsidianContextMenu.dll" Component_="ObsidianContextMenu.dll" FileName="OBSIDI~1.DLL|ObsidianContextMenu.dll" Attributes="0" SourcePath="bin\ObsidianContextMenu.dll" SelfReg="false"/>
+    <ROW File="ObsidianShell.CLI.exe" Component_="ObsidianShell.CLI.exe" FileName="OBSIDI~1.EXE|ObsidianShell.CLI.exe" Attributes="0" SourcePath="bin\ObsidianShell.CLI.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="ObsidianShell.CLI.exe.Config" Component_="ObsidianShell.CLI.exe.Config_1" FileName="OBSIDI~2.CON|ObsidianShell.Config" Attributes="0" SourcePath="bin\ObsidianShell.Config" SelfReg="false"/>
+    <ROW File="ObsidianShell.ContextMenu.dll" Component_="ObsidianShell.ContextMenu.dll" FileName="OBSIDI~1.DLL|ObsidianShell.ContextMenu.dll" Attributes="0" SourcePath="bin\ObsidianShell.ContextMenu.dll" SelfReg="false"/>
     <ROW File="SharpShell.dll" Component_="SharpShell.dll" FileName="SHARPS~1.DLL|SharpShell.dll" Attributes="0" SourcePath="bin\SharpShell.dll" SelfReg="false"/>
-    <ROW File="ObsidianShell.url" Component_="ObsidianCLI.exe.Config" FileName="OBSIDI~1.URL|ObsidianShell.url" Attributes="0" SourcePath="bin\ObsidianShell.url" SelfReg="false"/>
+    <ROW File="ObsidianShell.url" Component_="ObsidianShell.CLI.exe.Config" FileName="OBSIDI~1.URL|ObsidianShell.url" Attributes="0" SourcePath="bin\ObsidianShell.url" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AiPersistentDataComponent">
-    <ROW PersistentRow="ObsidianCLI.exe.Config" Type="0" Condition="1"/>
+    <ROW PersistentRow="ObsidianShell.CLI.exe.Config" Type="0" Condition="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -82,13 +82,13 @@
     <ROW Action="AI_DetectSoftware" Sequence="151"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en;zh" LangOpt="1" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="bin\ObsidianCLI.exe" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true" ExeName="ObsidianShell Installer" MsiPackageType="x64"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="en;zh" LangOpt="1" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="bin\ObsidianShell.CLI.exe" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true" ExeName="ObsidianShell Installer" MsiPackageType="x64"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DefaultProgramsComponent">
     <ROW ApplicationDescription="Your application description" ApplicationName="[ProductName]" CapabilitiesPath="SOFTWARE\[Manufacturer]\[ProductName]" Defaults="md" RegistryKey="ApplicationDescription" RegistryAppName="ApplicationName" RegistryRegisterApp="ProductName_4"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DefaultProgramsExtComponent">
-    <ROW DefaultProgram="ApplicationDescription" Extension="md" Component_="ObsidianCLI.exe" Registry="md"/>
+    <ROW DefaultProgram="ApplicationDescription" Extension="md" Component_="ObsidianShell.CLI.exe" Registry="md"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -97,7 +97,7 @@
     <ROW Path="dictionary.ail" Options="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DynamicPropertyComponent">
-    <ROW Property="ProductVersion" Type="2" SourcePath="ObsidianCLI.exe"/>
+    <ROW Property="ProductVersion" Type="2" SourcePath="ObsidianShell.CLI.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
@@ -222,29 +222,29 @@
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[ProgramFiles64Folder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
-    <ROW Action="ServerRegistrationManager_install" Type="3074" Source="viewer.exe" Target="/RunAsAdmin /HideWindow cmd.exe /c &quot;&quot;[&amp;serverregistrationmanager.exe]&quot; install &quot;[#ObsidianContextMenu.dll]&quot; -codebase&quot;" Options="1"/>
-    <ROW Action="ServerRegistrationManager_uninstall" Type="3074" Source="viewer.exe" Target="/RunAsAdmin /HideWindow cmd.exe /c &quot;&quot;[&amp;serverregistrationmanager.exe]&quot; uninstall &quot;[#ObsidianContextMenu.dll]&quot; &quot;" Options="1"/>
+    <ROW Action="ServerRegistrationManager_install" Type="3074" Source="viewer.exe" Target="/RunAsAdmin /HideWindow cmd.exe /c &quot;&quot;[&amp;serverregistrationmanager.exe]&quot; install &quot;[#ObsidianShell.ContextMenu.dll]&quot; -codebase&quot;" Options="1"/>
+    <ROW Action="ServerRegistrationManager_uninstall" Type="3074" Source="viewer.exe" Target="/RunAsAdmin /HideWindow cmd.exe /c &quot;&quot;[&amp;serverregistrationmanager.exe]&quot; uninstall &quot;[#ObsidianShell.ContextMenu.dll]&quot; &quot;" Options="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiExtComponent">
-    <ROW Extension="md" Component_="ObsidianCLI.exe" ProgId_="[|Manufacturer].[|ProductName].md" Feature_="MainFeature" Options="32"/>
+    <ROW Extension="md" Component_="ObsidianShell.CLI.exe" ProgId_="[|Manufacturer].[|ProductName].md" Feature_="MainFeature" Options="32"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="Fastenshtein.dll"/>
     <ROW Feature_="MainFeature" Component_="NCode.ReparsePoints.dll"/>
-    <ROW Feature_="MainFeature" Component_="ObsidianCLI.exe"/>
-    <ROW Feature_="MainFeature" Component_="ObsidianCLI.exe.Config"/>
-    <ROW Feature_="MainFeature" Component_="ObsidianContextMenu.dll"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianShell.CLI.exe"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianShell.CLI.exe.Config"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianShell.ContextMenu.dll"/>
     <ROW Feature_="MainFeature" Component_="SharpShell.dll"/>
     <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
     <ROW Feature_="MainFeature" Component_="ApplicationDescription"/>
     <ROW Feature_="MainFeature" Component_="New_Key"/>
     <ROW Feature_="MainFeature" Component_="C8FE654EBB45E7B4406E39B2CDBF29"/>
-    <ROW Feature_="MainFeature" Component_="ObsidianCLI.exe.Config_1"/>
+    <ROW Feature_="MainFeature" Component_="ObsidianShell.CLI.exe.Config_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
-    <ROW Name="ext.exe" SourcePath="bin\ObsidianCLI.exe" Index="0"/>
+    <ROW Name="ext.exe" SourcePath="bin\ObsidianShell.CLI.exe" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -350,7 +350,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiVerbComponent">
-    <ROW Extension_="md" Component_="ObsidianCLI.exe" Verb="open" Sequence="0" Command="&amp;Open" Argument="&quot;%1&quot;"/>
+    <ROW Extension_="md" Component_="ObsidianShell.CLI.exe" Verb="open" Sequence="0" Command="&amp;Open" Argument="&quot;%1&quot;"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
     <ROW PrereqKey="B96F93FA27E74B02866727AAE83982D0" DisplayName=".NET Framework 4.8" SetupFileUrl="https://download.visualstudio.microsoft.com/download/pr/014120d7-d689-4305-befd-3cb711108212/0fd66638cde16859462a6243a4629a50/ndp48-x86-x64-allos-enu.exe" Location="1" ExactSize="117380440" WinNTVersions="Windows Vista x86, Windows Server 2008 x86, Windows 7 RTM x86, Windows 8 x86, Windows 10 version 1507 x86, Windows 10 version 1511 x86, Windows 10 version 1903 x86, Windows 10 version 1909 x86, Windows 10 version 2004 x86, Windows 10 version 20H2 x86, Windows 10 version 21H1 x86, Windows 10 version 21H2 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 RTM x64, Windows 8 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64, Windows 10 version 1903 x64, Windows 10 version 1909 x64, Windows 10 version 2004 x64, Windows 10 version 20H2 x64, Windows 10 version 21H1 x64, Windows 10 version 21H2 x64, Windows Server 2022 x64, Windows 11 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="aebcb9fcafa2becf8bb30458a7e1f0a2" TargetName=".NET Framework 4.8"/>

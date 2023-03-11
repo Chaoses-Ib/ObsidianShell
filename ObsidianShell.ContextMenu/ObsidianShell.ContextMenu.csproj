@@ -7,8 +7,8 @@
     <ProjectGuid>{FAC356E8-2107-4036-97FD-13154FD92F7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ObsidianContextMenu</RootNamespace>
-    <AssemblyName>ObsidianContextMenu</AssemblyName>
+    <RootNamespace>ObsidianShell.ContextMenu</RootNamespace>
+    <AssemblyName>ObsidianShell.ContextMenu</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

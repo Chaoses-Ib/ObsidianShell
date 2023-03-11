@@ -1,0 +1,123 @@
+﻿<Window x:Class="ObsidianShell.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObsidianShell.GUI"
+        mc:Ignorable="d"
+        Title="ObsidianShell" Height="350" Width="600">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.Resources>
+            <Style TargetType="GroupBox">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Padding" Value="4"/>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0">Open mode:</Label>
+            <ComboBox x:Name="OpenModeComboBox" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding OpenModeViews}" SelectedItem="{Binding CurrentOpenModeView}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding OpenMode}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Grid.Row="1" Grid.Column="1"
+                   TextWrapping="Wrap"
+                   Margin="0,3,0,3"
+                   Text="{Binding CurrentOpenModeView.Description}">
+            </TextBlock>
+        </Grid>
+
+        <GroupBox Grid.Row="1" Header="Fallback Markdown editor" IsEnabled="{Binding CurrentOpenModeView.EnableFallbackMarkdownEditor}">
+            <GroupBox.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                </Style>
+            </GroupBox.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0">Editor path:</Label>
+                <ComboBox Grid.Row="0" Grid.Column="1" IsEditable="True" Text="{Binding Settings.FallbackMarkdownEditor}">
+                    <ComboBoxItem>notepad</ComboBoxItem>
+                    <ComboBoxItem>%LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe</ComboBoxItem>
+                    <ComboBoxItem>%ProgramFiles%\Typora\Typora.exe</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="ChooseEditorButton" Grid.Row="0" Grid.Column="2" Click="ChooseEditorButton_Click">Choose</Button>
+
+                <Label Grid.Row="1" Grid.Column="0">Arguments:</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Settings.FallbackMarkdownEditorArguments}"></TextBox>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Header="Recent vault" IsEnabled="{Binding CurrentOpenModeView.EnableRecentVault}">
+            <GroupBox.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                </Style>
+            </GroupBox.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0">Vault path:</Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Settings.RecentVault}"></TextBox>
+                <Button x:Name="ChooseRecentVaultButton" Grid.Row="0" Grid.Column="2" Click="ChooseRecentVaultButton_Click">Choose</Button>
+
+                <Label Grid.Row="1" Grid.Column="0">Subdirectories limit:</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Settings.RecentVaultSubdirectoriesLimit}"></TextBox>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="4"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="OkButton" Click="OkButton_Click">OK</Button>
+            <Button x:Name="CancelButton" Click="CancelButton_Click">Cancel</Button>
+            <Button x:Name="ApplyButton" Click="ApplyButton_Click">Apply</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NCode.ReparsePoints;
 
-namespace ObsidianCLI
+namespace ObsidianShell.CLI
 {
     internal class Program
     {
-        static Configuration config;
+        static Settings _settings;
         
         static void Main(string[] args)
         {
             AppDomain.CurrentDomain.UnhandledException += (sender, eventArgs) => {
-                MessageBox.Show(eventArgs.ExceptionObject.ToString(), "ObsidianCLI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(eventArgs.ExceptionObject.ToString(), "ObsidianShell.CLI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
+
+            _settings = Settings.Load();
 
             if (args.Length == 0)
             {
@@ -28,27 +30,10 @@ namespace ObsidianCLI
             }
             
             string path = args[0];
-
-            string config_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Chaoses Ib", "ObsidianShell", "ObsidianShell.config");
-            if (!File.Exists(config_path))
-            {
-                DirectoryInfo program_directory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                config_path = Path.Combine(program_directory.FullName, "ObsidianShell.config");
-                if (!File.Exists(config_path))
-                {
-                    MessageBox.Show($"Config file ObsidianShell.config not found", "ObsidianCLI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
-            var filemap = new ExeConfigurationFileMap();
-            filemap.ExeConfigFilename = config_path;
-            config = ConfigurationManager.OpenMappedExeConfiguration(filemap, ConfigurationUserLevel.None);
             
-            string open_mode = GetConfigValueOr("OpenMode", "VaultFallback");
-            switch (open_mode)
+            switch (_settings.OpenMode)
             {
-                case "VaultFallback":
+                case OpenMode.VaultFallback:
                     {
                         if (IsFileInVault(path))
                         {
@@ -60,7 +45,7 @@ namespace ObsidianCLI
                         }
                         break;
                     }
-                case "VaultRecent":
+                case OpenMode.VaultRecent:
                     {
                         if (IsFileInVault(path))
                         {
@@ -72,40 +57,12 @@ namespace ObsidianCLI
                         }
                         break;
                     }
-                case "Recent":
+                case OpenMode.Recent:
                     {
                         OpenFileInRecent(path);
                         break;
                     }
             }
-        }
-
-        static string GetConfigValue(string key)
-        {
-            string value = config.AppSettings.Settings[key]?.Value;
-            if (value is null)
-            {
-                MessageBox.Show($"Config value {key} not found", "ObsidianCLI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-            return value;
-        }
-
-        static string GetConfigValueOr(string key, string default_value)
-        {
-            string value = config.AppSettings.Settings[key]?.Value;
-            if (value is null)
-            {
-                return AddConfigElement(key, default_value);
-            }
-            return value;
-        }
-
-        static string AddConfigElement(string key, string value)
-        {
-            config.AppSettings.Settings.Add(key, value);
-            config.Save();
-            return value;
         }
 
         static bool IsFileInVault(string path)
@@ -121,7 +78,7 @@ namespace ObsidianCLI
             }
 
             directory = directory.Parent;
-            while (directory is null is false)  // `is not null` requires C# 9.0
+            while (directory is not null)
             {
                 if (Directory.Exists(directory.FullName + @"\.obsidian"))
                 {
@@ -141,16 +98,11 @@ namespace ObsidianCLI
 
         static void OpenFileByFallback(string path)
         {
-            string fallback = GetConfigValueOr("MarkdownFallback", "notepad");
             // Process.Start() will not expand environment variables
-            fallback = Environment.ExpandEnvironmentVariables(fallback);
-
-            string fallback_arguments = GetConfigValueOr("MarkdownFallbackArguments", "{0}");
-
-            //MessageBox.Show(fallback + " " + String.Format(fallback_arguments, $@"""{path}"""));
+            string editor = Environment.ExpandEnvironmentVariables(_settings.FallbackMarkdownEditor);
 
             // the filename and arguments must be provided seperately when calling Process.Start()
-            Process.Start(fallback, String.Format(fallback_arguments, $@"""{path}"""));
+            Process.Start(editor, String.Format(_settings.FallbackMarkdownEditorArguments, $@"""{path}"""));
         }
 
         static void OpenFileInRecent(string path)
@@ -209,7 +161,7 @@ namespace ObsidianCLI
         static string CreateLinkInRecent(DirectoryInfo directory, bool explicitDirectory)
         {
             var provider = ReparsePointFactory.Provider;
-            DirectoryInfo recent = new DirectoryInfo(GetConfigValue("RecentVault"));
+            DirectoryInfo recent = new DirectoryInfo(_settings.RecentVault);
 
             string dir_target_same = null;
             List<string> conflict_dirs = new List<string>();
@@ -306,7 +258,7 @@ namespace ObsidianCLI
             }
 
             // Recent = dirs + .obsidian
-            if (recent.GetDirectories().Length > int.Parse(GetConfigValue("RecentLimit")))
+            if (recent.GetDirectories().Length > _settings.RecentVaultSubdirectoriesLimit)
             {
                 (from f in recent.GetDirectories()
                  orderby f.LastWriteTime ascending

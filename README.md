@@ -27,7 +27,7 @@ Config file location: `%LOCALAPPDATA%\Chaoses Ib\ObsidianShell\ObsidianShell.Con
 ![](images/File%20list.png)
 
 1. Right-click on a .md file
-2. Select `Open with` → `Choose another app` → `ObsidianCLI`
+2. Select `Open with` → `Choose another app` → `ObsidianShell.CLI`
 3. Check `Always use this app to open .md files`
 4. Click `OK`
 

@@ -26,7 +26,7 @@
 ![](images/File%20list.png)
 
 1. 右键单击一个 .md 文件
-2. 选择 `打开方式` → `选择其他应用` → `ObsidianCLI`
+2. 选择 `打开方式` → `选择其他应用` → `ObsidianShell.CLI`
 3. 勾选 `始终使用此应用打开 .md 文件`
 4. 点击 `确定`
 

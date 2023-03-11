@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "CLI\CLI.csproj", "{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsidianShell.CLI", "ObsidianShell.CLI\ObsidianShell.CLI.csproj", "{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextMenu", "ContextMenu\ContextMenu.csproj", "{FAC356E8-2107-4036-97FD-13154FD92F7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsidianShell.ContextMenu", "ObsidianShell.ContextMenu\ObsidianShell.ContextMenu.csproj", "{FAC356E8-2107-4036-97FD-13154FD92F7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsidianShell.GUI", "ObsidianShell.GUI\ObsidianShell.GUI.csproj", "{44BCB293-2776-46E7-8E73-F8A7AF5D5357}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObsidianShell", "ObsidianShell\ObsidianShell.csproj", "{F92C3525-0AC0-4A9C-8ADB-B269138929A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAC356E8-2107-4036-97FD-13154FD92F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BCB293-2776-46E7-8E73-F8A7AF5D5357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BCB293-2776-46E7-8E73-F8A7AF5D5357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BCB293-2776-46E7-8E73-F8A7AF5D5357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BCB293-2776-46E7-8E73-F8A7AF5D5357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F92C3525-0AC0-4A9C-8ADB-B269138929A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92C3525-0AC0-4A9C-8ADB-B269138929A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92C3525-0AC0-4A9C-8ADB-B269138929A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92C3525-0AC0-4A9C-8ADB-B269138929A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

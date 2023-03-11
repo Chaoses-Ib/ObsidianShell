@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using SharpShell.Attributes;
 using SharpShell.SharpContextMenu;
 
-namespace ObsidianContextMenu
+namespace ObsidianShell.ContextMenu
 {
     [ComVisible(true)]
     [COMServerAssociation(AssociationType.Directory)]
@@ -43,13 +43,13 @@ namespace ObsidianContextMenu
             {
                 foreach (string path in SelectedItemPaths)
                 {
-                    string cli = Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\ObsidianCLI.exe";
+                    string cli = Directory.GetParent(Assembly.GetExecutingAssembly().Location) + @"\ObsidianShell.CLI.exe";
                     Process.Start(cli, $@"""{path}""");
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString(), "ObsidianContextMenu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.ToString(), "ObsidianShell.ContextMenu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

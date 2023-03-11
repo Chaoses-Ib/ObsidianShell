@@ -6,9 +6,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DED5B59A-936A-444D-9B9A-B0BBF3ACCFA5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ObsidianCLI</RootNamespace>
-    <AssemblyName>ObsidianCLI</AssemblyName>
+    <RootNamespace>ObsidianShell.CLI</RootNamespace>
+    <AssemblyName>ObsidianShell.CLI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>11.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -115,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Obsidian.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ObsidianShell\ObsidianShell.csproj">
+      <Project>{f92c3525-0ac0-4a9c-8adb-b269138929a1}</Project>
+      <Name>ObsidianShell</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
