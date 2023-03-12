@@ -63,7 +63,7 @@ namespace ObsidianShell
             return Uri.EscapeDataString(text);
         }
 
-        private void OpenFileInVault(string path)
+        private void OpenFileInVault(string path, string vaultPath = null)
         {
             if (_settings.EnableAdvancedURI is false)
             {
@@ -71,7 +71,7 @@ namespace ObsidianShell
             }
             else
             {
-                string vaultPath = GetFileVaultPath(path);
+                vaultPath = vaultPath ?? GetFileVaultPath(path);
                 string vault = GetVaultName(vaultPath);
                 string filename = Utils.GetRelativePath(vaultPath, path);
 
@@ -177,7 +177,7 @@ namespace ObsidianShell
                 path_in_recent = CreateLinkInRecent(directory.Parent, false) + '\\' + directory.Name;
             }
 
-            OpenFileInVault(path_in_recent);
+            OpenFileInVault(path_in_recent, _settings.RecentVault);
         }
 
         private static string FormatLinkName(string prefixed_name, bool explicitDirectory)
