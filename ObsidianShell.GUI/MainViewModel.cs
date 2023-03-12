@@ -25,10 +25,13 @@ namespace ObsidianShell.GUI
         
         public ObservableCollection<OpenModeView> OpenModeViews { get; }
 
-        public OpenModeView CurrentOpenModeView {
+        public OpenModeView CurrentOpenModeView
+        {
             get => OpenModeViews[(int)Settings.OpenMode];
             set => Settings.OpenMode = value.OpenMode;
         }
+
+        public ObsidianOpenMode[] ObsidianOpenModes { get; }
 
         public MainViewModel()
         {
@@ -56,6 +59,15 @@ namespace ObsidianShell.GUI
                     EnableFallbackMarkdownEditor = false,
                     EnableRecentVault = true
                 }
+            };
+
+            ObsidianOpenModes = new[]
+            {
+                ObsidianOpenMode.CurrentTab,
+                ObsidianOpenMode.NewTab,
+                ObsidianOpenMode.NewWindow,
+                ObsidianOpenMode.NewPane,
+                ObsidianOpenMode.HoverPopover
             };
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ObsidianShell.GUI"
         mc:Ignorable="d"
-        Title="ObsidianShell" Height="350" Width="600">
+        Title="ObsidianShell" Height="550" Width="600">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
     </Window.Resources>
@@ -21,6 +21,7 @@
         </Grid.Resources>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -108,7 +109,72 @@
             </Grid>
         </GroupBox>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+        <GroupBox Grid.Row="3">
+            <GroupBox.Header>
+                <CheckBox IsChecked="{Binding Settings.EnableAdvancedURI}">Enable support for Obsidian Advanced URI</CheckBox>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label>
+                    <TextBlock TextWrapping="Wrap">
+                    Click 
+                    <Hyperlink NavigateUri="obsidian://show-plugin?id=obsidian-advanced-uri" RequestNavigate="Hyperlink_RequestNavigate">
+                        here
+                    </Hyperlink>
+                    to install Obsidian Advanced URI. Make sure you have enabled it after installation.
+                    See
+                    <Hyperlink NavigateUri="https://vinzent03.github.io/obsidian-advanced-uri/installing" RequestNavigate="Hyperlink_RequestNavigate">
+                        Installing
+                    </Hyperlink>
+                    for details.
+                    To be able to use HoverPopover, you also need to install 
+                    <Hyperlink NavigateUri="obsidian://show-plugin?id=obsidian-hover-editor" RequestNavigate="Hyperlink_RequestNavigate">
+                        Obsidian Hover Editor
+                    </Hyperlink>.
+                    </TextBlock>
+                </Label>
+                <Grid Grid.Row="1">
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="IsEnabled" Value="{Binding Settings.EnableAdvancedURI}"/>
+                        </Style>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="120"/>
+                            <Setter Property="IsEnabled" Value="{Binding Settings.EnableAdvancedURI}"/>
+                            <Setter Property="ItemsSource" Value="{Binding ObsidianOpenModes}"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0">Default:</Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1" SelectedItem="{Binding Settings.ObsidianDefaultOpenMode}"/>
+                    <Label Grid.Row="1" Grid.Column="0">Ctrl:</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="1" SelectedItem="{Binding Settings.ObsidianCtrlOpenMode}"/>
+                    <Label Grid.Row="2" Grid.Column="0">Shift:</Label>
+                    <ComboBox Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Settings.ObsidianShiftOpenMode}"/>
+                    <Label Grid.Row="3" Grid.Column="0">Alt:</Label>
+                    <ComboBox Grid.Row="3" Grid.Column="1" SelectedItem="{Binding Settings.ObsidianAltOpenMode}"/>
+                    <Label Grid.Row="4" Grid.Column="0">Win:</Label>
+                    <ComboBox Grid.Row="4" Grid.Column="1" SelectedItem="{Binding Settings.ObsidianWinOpenMode}"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Padding" Value="4"/>
