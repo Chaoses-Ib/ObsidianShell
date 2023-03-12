@@ -18,8 +18,9 @@ namespace ObsidianShell
         CurrentTab = 0,
         NewTab = 1,
         NewWindow = 2,
+        VaultAndNewWindow = 5,
         NewPane = 3,
-        HoverPopover = 4
+        HoverPopover = 4,
     }
 
     public class Settings : INotifyPropertyChanged
@@ -35,10 +36,10 @@ namespace ObsidianShell
         public int RecentVaultSubdirectoriesLimit { get; set; } = 10;
 
         public bool EnableAdvancedURI { get; set; } = false;
-        public ObsidianOpenMode ObsidianDefaultOpenMode { get; set; } = ObsidianOpenMode.NewWindow;
+        public ObsidianOpenMode ObsidianDefaultOpenMode { get; set; } = ObsidianOpenMode.NewTab;
         public ObsidianOpenMode ObsidianCtrlOpenMode { get; set; } = ObsidianOpenMode.NewPane;
-        public ObsidianOpenMode ObsidianShiftOpenMode { get; set; } = ObsidianOpenMode.CurrentTab;
-        public ObsidianOpenMode ObsidianAltOpenMode { get; set; } = ObsidianOpenMode.NewTab;
+        public ObsidianOpenMode ObsidianShiftOpenMode { get; set; } = ObsidianOpenMode.NewWindow;
+        public ObsidianOpenMode ObsidianAltOpenMode { get; set; } = ObsidianOpenMode.CurrentTab;
         public ObsidianOpenMode ObsidianWinOpenMode { get; set; } = ObsidianOpenMode.HoverPopover;
 
         private static string GetPath()

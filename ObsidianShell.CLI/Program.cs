@@ -14,7 +14,7 @@ namespace ObsidianShell.CLI
     {
         static Settings _settings;
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             AppDomain.CurrentDomain.UnhandledException += (sender, eventArgs) =>
             {
@@ -30,7 +30,7 @@ namespace ObsidianShell.CLI
             _settings = Settings.Load();
 
             Obsidian obsidian = new Obsidian(_settings);
-            obsidian.OpenFile(args[0]);
+            await obsidian.OpenFile(args[0]);
         }
     }
 }

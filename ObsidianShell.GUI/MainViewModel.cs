@@ -66,6 +66,7 @@ namespace ObsidianShell.GUI
                 ObsidianOpenMode.CurrentTab,
                 ObsidianOpenMode.NewTab,
                 ObsidianOpenMode.NewWindow,
+                ObsidianOpenMode.VaultAndNewWindow,
                 ObsidianOpenMode.NewPane,
                 ObsidianOpenMode.HoverPopover
             };

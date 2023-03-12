@@ -5,9 +5,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.Win32;
+using Windows.Win32.Foundation;
 
 namespace ObsidianShell
 {
@@ -20,7 +24,7 @@ namespace ObsidianShell
             _settings = settings;
         }
         
-        public void OpenFile(string path)
+        public async Task OpenFile(string path)
         {
             switch (_settings.OpenMode)
             {
@@ -28,7 +32,7 @@ namespace ObsidianShell
                     {
                         if (IsFileInVault(path))
                         {
-                            OpenFileInVault(path);
+                            await OpenFileInVault(path);
                         }
                         else
                         {
@@ -40,17 +44,17 @@ namespace ObsidianShell
                     {
                         if (IsFileInVault(path))
                         {
-                            OpenFileInVault(path);
+                            await OpenFileInVault(path);
                         }
                         else
                         {
-                            OpenFileInRecent(path);
+                            await OpenFileInRecent(path);
                         }
                         break;
                     }
                 case OpenMode.Recent:
                     {
-                        OpenFileInRecent(path);
+                        await OpenFileInRecent(path);
                         break;
                     }
             }
@@ -63,7 +67,7 @@ namespace ObsidianShell
             return Uri.EscapeDataString(text);
         }
 
-        private void OpenFileInVault(string path, string vaultPath = null)
+        private async Task OpenFileInVault(string path, string vaultPath = null)
         {
             if (_settings.EnableAdvancedURI is false)
             {
@@ -73,7 +77,7 @@ namespace ObsidianShell
             {
                 vaultPath = vaultPath ?? GetFileVaultPath(path);
                 string vault = GetVaultName(vaultPath);
-                string filename = Utils.GetRelativePath(vaultPath, path);
+                string filepath = Utils.GetRelativePath(vaultPath, path);
 
                 ObsidianOpenMode obsidianOpenMode = _settings.ObsidianDefaultOpenMode;
                 if (Utils.IsKeyPressed(Keys.ControlKey))
@@ -85,18 +89,58 @@ namespace ObsidianShell
                 if (Utils.IsKeyPressed(Keys.LWin) || Utils.IsKeyPressed(Keys.RWin))
                     obsidianOpenMode = _settings.ObsidianWinOpenMode;
 
-                string openmode = obsidianOpenMode switch
+                if (obsidianOpenMode is ObsidianOpenMode.NewWindow)
                 {
-                    ObsidianOpenMode.CurrentTab => "false",
-                    ObsidianOpenMode.NewTab => "tab",
-                    ObsidianOpenMode.NewWindow => "window",
-                    ObsidianOpenMode.NewPane => "split",
-                    ObsidianOpenMode.HoverPopover => "popover",
-                    _ => throw new ArgumentException()
-                };
-                
-                Process.Start($"obsidian://advanced-uri?vault={PercentEncode(vault)}&filepath={PercentEncode(filename)}&openmode={openmode}");
+                    await OpenFileInNewWindow(vault, filepath);
+                }
+                else
+                {
+                    string openmode = obsidianOpenMode switch
+                    {
+                        ObsidianOpenMode.CurrentTab => "false",
+                        ObsidianOpenMode.NewTab => "tab",
+                        //ObsidianOpenMode.NewWindow => "window",
+                        ObsidianOpenMode.NewPane => "split",
+                        ObsidianOpenMode.HoverPopover => "popover",
+                        ObsidianOpenMode.VaultAndNewWindow => "window",
+                        _ => throw new ArgumentException()
+                    };
+                    Process.Start($"obsidian://advanced-uri?vault={PercentEncode(vault)}&filepath={PercentEncode(filepath)}&openmode={openmode}");
+                }
             }
+        }
+
+        private async Task OpenFileInNewWindow(string vault, string filepath)
+        {
+            List<WindowVisualState> states = Utils.EnumerateProcessWindowHandles("Obsidian", "Chrome_WidgetWin_1").Select(w => new WindowVisualState(w)).ToList();
+            Process.Start($"obsidian://advanced-uri?vault={PercentEncode(vault)}&filepath={PercentEncode(filepath)}&openmode=window");
+
+            Stopwatch stopwach = Stopwatch.StartNew();
+            do
+            {
+                await Task.Delay(50);
+                // This is not precise enough. If the vault hasn't been opend before, Obsidian will create two or more windows.
+                // But that case is hard to detect.
+                if (Utils.EnumerateProcessWindowHandles("Obsidian", "Chrome_WidgetWin_1").Count() > states.Count)
+                {
+                    // 250~477ms
+                    Debug.WriteLine($"Found new window after {stopwach.ElapsedMilliseconds}ms");
+                    break;
+                }
+            } while (stopwach.ElapsedMilliseconds < 10000);
+
+            foreach (WindowVisualState state in states)
+            {
+                state.Restore();
+            }
+
+            /*
+            // If not specify Chrome_WidgetWin_1, we will get Chrome_WidgetWin_0.
+            HWND newWindow = Utils.EnumerateProcessWindowHandles("Obsidian", "Chrome_WidgetWin_1").Where(x => !states.Select(x => x.Handle).Contains(x)).First();
+            Debug.WriteLine($"New window: {new WindowVisualState(newWindow)}");
+
+            PInvoke.BringWindowToTop(newWindow);
+            */
         }
 
         private static string GetVaultName(string path)
@@ -142,7 +186,7 @@ namespace ObsidianShell
             Process.Start(editor, String.Format(_settings.FallbackMarkdownEditorArguments, $@"""{path}"""));
         }
 
-        private void OpenFileInRecent(string path)
+        private async Task OpenFileInRecent(string path)
         {
             // hard link stays valid when the source file is deleted;
             // symbolic link requires SeCreateSymbolicLinkPrivilege;
@@ -177,7 +221,7 @@ namespace ObsidianShell
                 path_in_recent = CreateLinkInRecent(directory.Parent, false) + '\\' + directory.Name;
             }
 
-            OpenFileInVault(path_in_recent, _settings.RecentVault);
+            await OpenFileInVault(path_in_recent, _settings.RecentVault);
         }
 
         private static string FormatLinkName(string prefixed_name, bool explicitDirectory)

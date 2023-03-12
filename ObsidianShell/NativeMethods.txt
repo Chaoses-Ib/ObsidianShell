@@ -1,0 +1,11 @@
+BringWindowToTop
+EnumThreadWindows
+GetAsyncKeyState
+GetClassName
+GetWindow
+IsIconic
+IsWindowVisible
+SendMessage
+SetWindowPos
+ShowWindow
+WM_GETTEXT
