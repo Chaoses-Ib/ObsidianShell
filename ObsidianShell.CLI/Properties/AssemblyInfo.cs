@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ObsidianShell.CLI")]
-[assembly: AssemblyDescription("A command line interface program for opening .md files in Obsidian")]
+[assembly: AssemblyDescription("A command line interface program for opening Markdown files in Obsidian")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("https://github.com/Chaoses-Ib/ObsidianShell")]
 [assembly: AssemblyProduct("ObsidianShell")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.1.0")]
-[assembly: AssemblyFileVersion("0.3.1.0")]
+[assembly: AssemblyVersion("0.4.0.0")]
+[assembly: AssemblyFileVersion("0.4.0.0")]
