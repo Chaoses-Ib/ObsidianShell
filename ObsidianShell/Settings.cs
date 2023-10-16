@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace ObsidianShell
 {
@@ -44,16 +45,28 @@ namespace ObsidianShell
 
         private static string GetPath()
         {
-            string path = Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, "Settings.json");
-            if (File.Exists(path))
-                return path;
+            string portablePath = Path.Combine(Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName, "Settings.json");
+            if (File.Exists(portablePath))
+                return portablePath;
             
-            path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Chaoses Ib", "ObsidianShell", "Settings.json");
-            if (!File.Exists(path))
+            string installedPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Chaoses Ib", "ObsidianShell", "Settings.json");
+            if (File.Exists(installedPath))
+                return installedPath;
+
+            // Portable version is not released with an empty settings file, because users may overwrite existing settings during upgrade.
+            // So we need to try to create at the portable path first.
+            try
             {
-                File.WriteAllText(path, "{}");
+                File.WriteAllText(portablePath, "{}");
+                return portablePath;
             }
-            return path;
+            catch (Exception e)
+            {
+                MessageBox.Show($"Failed to create settings file at {portablePath}:\n{e}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            File.WriteAllText(installedPath, "{}");
+            return installedPath;
         }
 
         public static Settings Load()
