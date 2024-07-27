@@ -45,7 +45,13 @@ It supports three opening modes:
   - Notepad (default)
   - [Visual Studio Code](https://code.visualstudio.com/)
   
-    The use of `code` is not recommended since it is actually an batch file and will cause some startup delays.
+    The use of `code` is not recommended since it is actually an batch file and will cause some startup delays. Use `%LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe` instead.
+
+    [OpenFileInWorkspace](https://github.com/Chaoses-Ib/IbDOpusScripts#:~:text=Non%2DDOpus%20scripts%3A-,OpenFileInWorkspace,-Given%20a%20file) can be used to open the file in workspace. The settings should be:
+    - Editor path: `wscript`
+    - Arguments: `"...\OpenFileInWorkspace.vbs" {0}`
+    
+      `...\OpenFileInWorkspace.vbs` should be the absolute path to `OpenFileInWorkspace.vbs`.
 
   - [Typora](https://typora.io/) (≥ 1.1)
 - VaultRecent

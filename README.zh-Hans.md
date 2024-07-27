@@ -44,7 +44,13 @@
   - 记事本（默认）
   - [Visual Studio Code](https://code.visualstudio.com/)
     
-    不推荐用 `code`，它实际上是个批处理文件，会导致一些启动延迟。
+    不推荐使用 `code`，它实际上是个批处理文件，会导致一些启动延迟。可以使用 `%LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe` 替代。
+
+    可以通过 [OpenFileInWorkspace](https://github.com/Chaoses-Ib/IbDOpusScripts/blob/main/README.zh-Hans.md#:~:text=%E9%9D%9E%20DOpus%20%E8%84%9A%E6%9C%AC%3A-,OpenFileInWorkspace,-%E7%BB%99%E5%AE%9A%E4%B8%80%E4%B8%AA) 来在工作区中打开文件。相应设置为：
+    - Editor path: `wscript`
+    - Arguments: `"...\OpenFileInWorkspace.vbs" {0}`
+    
+      其中 `...\OpenFileInWorkspace.vbs` 应为 `OpenFileInWorkspace.vbs` 的绝对路径。
 
   - [Typora](https://typora.io/)（≥ 1.1）
 
