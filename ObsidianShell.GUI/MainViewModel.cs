@@ -58,6 +58,13 @@ namespace ObsidianShell.GUI
                     Description = "Whether the Markdown file you want to open is in a vault, link its parent directory to the Recent vault and then open it.",
                     EnableFallbackMarkdownEditor = false,
                     EnableRecentVault = true
+                },
+                new OpenModeView
+                {
+                    OpenMode = OpenMode.Fallback,
+                    Description = "Whether the Markdown file you want to open is in a vault, open it using the fallback Markdown editor.",
+                    EnableFallbackMarkdownEditor = true,
+                    EnableRecentVault = false
                 }
             };
 

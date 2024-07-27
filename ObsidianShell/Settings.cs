@@ -11,7 +11,8 @@ namespace ObsidianShell
     {
         VaultFallback = 0,
         VaultRecent = 1,
-        Recent = 2
+        Recent = 2,
+        Fallback = 3
     }
 
     public enum ObsidianOpenMode
